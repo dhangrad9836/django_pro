@@ -1,5 +1,10 @@
 from django.shortcuts import render
-from django.http.response import HttpResponse, HttpResponseNotFound, Http404
+from django.http.response import (
+    HttpResponse,
+    HttpResponseNotFound,
+    Http404,
+    HttpResponseRedirect,
+)
 
 # Create your views here.
 
@@ -21,7 +26,7 @@ articles = {
 }
 
 
-# our function will be called news_view and will take in a request and topic parameter, whichh is the value in the dictionary
+# our function will be called news_view and will take in a request and topic parameter, whichh is the value in the dictionary and make sure to import Http404
 def news_view(request, topic):
     # we will check if the topic is in the articles dictionary
     # we use a try/except and in the except we will return a 404 error using HttpResponseNotFound
@@ -34,6 +39,23 @@ def news_view(request, topic):
         raise Http404("404 GENEREIC ERROR")
 
 
+# here we will create a view that takes in a number from the url and redirects to the corresponding topic page
+# domain.com/first_app/0 will redirect to domain.com/first_app/sports
+# domain.com/first_app/1 will redirect to domain.com/first_app/finance
+
+
+# make sure to import HttpResponseRedirect above
+def num_page_view(request, num_page):
+
+    topics_list = list(articles.keys())  # ['sports', 'finance', 'politics']
+    topic = topics_list[
+        num_page
+    ]  # this will get the topic based on the index passed in the url
+
+    return HttpResponseRedirect(topic)  # this will redirect to the topic page
+
+
+# make sure to import HttpResponse above
 def add_view(request, num1, num2):
     add_result = num1 + num2
     result = f"{num1} + {num2} = {add_result}"
