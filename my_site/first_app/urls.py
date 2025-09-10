@@ -13,6 +13,6 @@ from . import views
 # <str:topic> to capture the topic from the url and pass it to the news_view function as a parameter
 urlpatterns = [
     path("<int:num_page>", views.num_page_view),
-    path("<str:topic>", views.news_view),
+    path("<str:topic>", views.news_view, name="topic-page"),
     # path("<int:num1>/<int:num2>", views.add_view),
 ]  # this is the url path we use to access the app on the browser)]

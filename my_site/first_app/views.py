@@ -5,6 +5,7 @@ from django.http.response import (
     Http404,
     HttpResponseRedirect,
 )
+from django.urls import reverse
 
 # Create your views here.
 
@@ -52,7 +53,8 @@ def num_page_view(request, num_page):
         num_page
     ]  # this will get the topic based on the index passed in the url
 
-    return HttpResponseRedirect(topic)  # this will redirect to the topic page
+    webpage = reverse("topic-page", args=[topic])
+    return HttpResponseRedirect(webpage)  # this will redirect to the topic page
 
 
 # make sure to import HttpResponse above
