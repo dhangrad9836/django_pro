@@ -53,8 +53,10 @@ def num_page_view(request, num_page):
         num_page
     ]  # this will get the topic based on the index passed in the url
 
-    webpage = reverse("topic-page", args=[topic])
-    return HttpResponseRedirect(webpage)  # this will redirect to the topic page
+    # webpage = reverse("topic-page", args=[topic])
+    return HttpResponseRedirect(
+        reverse("topic-page", args=[topic])
+    )  # this will redirect to the topic page
 
 
 # make sure to import HttpResponse above
