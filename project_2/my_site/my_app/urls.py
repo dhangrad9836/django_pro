@@ -3,5 +3,6 @@ from . import views
 
 #add urls list here
 urlpatterns = [
-    path('', views.example_view)   
+    path('', views.example_view),
+    path('variable/', views.variable_view),   
 ]
