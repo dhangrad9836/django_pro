@@ -7,27 +7,6 @@
 </head>
 <body>
 <h1> Variables in Django Templates </h1>
-<ul>
-{% comment %} remember that some_list is passed from views.py {% endcomment %}
-{% for num in some_list  %}
-    {% if num == 2 %}
-        <li>TWO</li>
-    {% else  %}
-        <li>{{ num }}</li>    
-    {% endif %}
-
-{% endfor %}
-
-{% if user_logged_in %}
-    <h2> Welcome back, {{ first_name }} </h2>
-{% else %}
-    <h2> Please log in </h2>    
-{% endif %}
-
-</ul>
-
-
-
 
 
 </body>
