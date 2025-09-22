@@ -7,18 +7,10 @@
 </head>
 <body>
     <h1>VARIABLE.HTML</h1>
-    {% for item in some_list %}
-        <h1>{{item}} </h1>
-        <p> {{ item }} </p>
-    {% endfor %}
+    {% if user_logged_in %}
+    <h1>Welcome back you are logged in</h1>
     
-    <h2>Dictionary loop</h2>
-    <ul>
-    {% for k,v in some_dict.items %}
-        <li>{{v }} </li>
-
-    {% endfor %}
-    </ul>
+    {% endif %}    
 
 </body>
 </html>
