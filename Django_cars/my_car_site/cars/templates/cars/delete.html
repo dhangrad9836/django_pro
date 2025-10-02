@@ -1,5 +1,16 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Delete CAR</h1>    
+<div class="container">
+<h1>Delete CAR</h1>
+h1>Enter a PK to delete a car:</h1>    
+<form action="" method="POST">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="pk">PK Number:</label>
+        <input class="form-control" type="number" id="pk" name="pk">
+    </div>
+    <input class="btn btn-danger" type="submit">
+</form>
+</div>
 {% endblock %}
